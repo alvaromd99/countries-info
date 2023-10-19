@@ -1,3 +1,5 @@
+import './Information.css'
+
 interface InformationProps {
 	info: string
 	value?: string
@@ -5,7 +7,7 @@ interface InformationProps {
 
 export default function Information({ info, value }: InformationProps) {
 	return (
-		<p>
+		<p className='country-info'>
 			<span className='bolder-text'>{info}: </span>
 			{value || 'Capital'}
 		</p>
