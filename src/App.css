@@ -5,3 +5,10 @@
 .App .main {
 	background-color: var(--veryLightGray);
 }
+
+.App .main .countries-cont {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 3rem;
+	padding: 0px 4rem;
+}
