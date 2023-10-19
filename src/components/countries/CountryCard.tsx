@@ -1,7 +1,6 @@
 import { CountryTest } from '../../types/typesTest'
 
 interface CountryCardProps {
-	key: number
 	country: CountryTest
 }
 
