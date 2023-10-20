@@ -1,0 +1,21 @@
+.text-input {
+	width: 32rem;
+	height: 4rem;
+	background-color: var(--white);
+	display: flex;
+	align-items: center;
+	padding-left: 1rem;
+	gap: 1rem;
+}
+
+.text-input img {
+	height: 2rem;
+	width: 2rem;
+}
+
+.text-input input {
+	all: unset;
+	width: 27rem;
+	height: 2rem;
+	font-size: 2rem;
+}

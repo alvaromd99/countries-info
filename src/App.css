@@ -9,12 +9,12 @@
 .App .main .countries-cont {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-	gap: 3rem;
+	gap: 4rem;
 	padding: 0px 4rem;
 }
 
 .App .main .controls-cont {
-	height: 8rem;
+	height: 10rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

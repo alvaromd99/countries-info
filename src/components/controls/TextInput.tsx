@@ -1,4 +1,5 @@
 import loupeSvg from '../../assets/loupe.svg'
+import './TextInput.css'
 
 export default function TextInput() {
 	return (

@@ -1,3 +1,5 @@
+import './SelectInput.css'
+
 export default function SelectInput() {
 	return (
 		<div className='select-cont'>
