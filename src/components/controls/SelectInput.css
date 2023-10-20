@@ -1,3 +1,63 @@
 .select-cont {
-	all: unset;
+	width: 18rem;
+	height: 4rem;
+	background-color: var(--white);
+	position: relative;
+	font-size: 1.4rem;
+}
+
+.select-btn {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 1rem;
+	cursor: pointer;
+}
+
+.select-dropdown {
+	background-color: var(--white);
+	display: flex;
+	flex-direction: column;
+	margin-top: 0.4rem;
+	padding-left: 1rem;
+	cursor: pointer;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.4s ease;
+}
+
+.select-dropdown.active {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.option {
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	margin-top: 0.4rem;
+}
+
+.custom-arrow {
+	width: 3rem;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	pointer-events: none;
+}
+
+.custom-arrow::before {
+	content: '';
+	display: block;
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 3px solid var(--veryDarkblue);
+	border-left: 0;
+	border-top: 0;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-80%) rotate(45deg);
 }

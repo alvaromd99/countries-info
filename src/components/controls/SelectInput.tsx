@@ -1,15 +1,29 @@
 import './SelectInput.css'
+import { REGIONS_ARRAY as regions } from '../../constants/constants'
+import { useState } from 'react'
 
 export default function SelectInput() {
+	const [isSelectActive, setIsSelectActive] = useState(false)
+
+	const toggleActive = () => {
+		setIsSelectActive(!isSelectActive)
+	}
+
 	return (
 		<div className='select-cont'>
-			<select name='region-select' id='region'>
-				<option value=''>Select region</option>
-				<option value=''>b</option>
-				<option value=''>c</option>
-				<option value=''>d</option>
-				<option value=''>e</option>
-			</select>
+			<div className='select-btn' onClick={toggleActive}>
+				Filter by Region
+			</div>
+			<span
+				className={`custom-arrow${isSelectActive ? ' up' : ' down'}`}></span>
+
+			<div className={`select-dropdown${isSelectActive ? ' active' : ''}`}>
+				{regions.map((region, index) => (
+					<div className='option' key={index}>
+						{region}
+					</div>
+				))}
+			</div>
 		</div>
 	)
 }
