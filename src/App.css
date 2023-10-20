@@ -12,3 +12,11 @@
 	gap: 3rem;
 	padding: 0px 4rem;
 }
+
+.App .main .controls-cont {
+	height: 8rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 4rem;
+}
