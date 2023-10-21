@@ -1,1 +1,8 @@
-export const REGIONS_ARRAY = ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+export const REGIONS_ARRAY = [
+	'All regions',
+	'Africa',
+	'America',
+	'Asia',
+	'Europe',
+	'Oceania',
+]
