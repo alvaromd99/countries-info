@@ -4,6 +4,7 @@
 
 .App .main {
 	background-color: var(--veryLightGray);
+	min-height: 100vh;
 }
 
 .App .main .countries-cont {
