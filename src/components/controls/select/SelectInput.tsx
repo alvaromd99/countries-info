@@ -35,7 +35,7 @@ export default function SelectInput({ changeFilters }: SelectInputProps) {
 						className='option'
 						key={index}
 						onClick={() => handleClick(region)}>
-						{region}
+						{region === 'all' ? 'All regions' : region}
 					</div>
 				))}
 			</div>
