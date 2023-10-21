@@ -1,3 +1,8 @@
+export type Filters = {
+	text: string
+	region: string
+}
+
 export interface CountryTest {
 	name: string
 	topLevelDomain: string[]

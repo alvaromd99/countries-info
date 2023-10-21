@@ -1,8 +1,13 @@
 import './SelectInput.css'
 import { REGIONS_ARRAY as regions } from '../../../constants/constants'
 import { useState } from 'react'
+import { Filters } from '../../../types/typesTest'
 
-export default function SelectInput() {
+export interface SelectInputProps {
+	changeFilters: (field: keyof Filters, value: string) => void
+}
+
+export default function SelectInput({ changeFilters }: SelectInputProps) {
 	const [isSelectActive, setIsSelectActive] = useState(false)
 	const [regionValue, setRegionValue] = useState('all')
 
@@ -12,6 +17,7 @@ export default function SelectInput() {
 
 	const handleClick = (region: string) => {
 		setRegionValue(region)
+		changeFilters('region', region)
 		setIsSelectActive(false)
 	}
 

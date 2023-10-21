@@ -1,7 +1,7 @@
 export const REGIONS_ARRAY = [
-	'All regions',
+	'all',
 	'Africa',
-	'America',
+	'Americas',
 	'Asia',
 	'Europe',
 	'Oceania',
