@@ -10,7 +10,6 @@ import { Filters } from './types/typesTest'
 function App() {
 	const [filters, setFilters] = useState<Filters>({ text: '', region: 'all' })
 
-	// 	const changeTextFilter = (text: string) => {}
 	const updateFilter = (field: keyof Filters, value: string) => {
 		setFilters((prevFilters) => ({
 			...prevFilters,
@@ -18,13 +17,14 @@ function App() {
 		}))
 	}
 
-	console.log('Filter -> ', filters.region)
-
 	const filteredData = data.filter((c) => {
-		if (filters.region === 'all') {
+		if (filters.region === 'all' && filters.text === '') {
 			return c
 		}
-		return c.region === filters.region
+		return (
+			c.name.toLowerCase().includes(filters.text.toLowerCase()) &&
+			c.region === filters.region
+		)
 	})
 
 	return (
@@ -32,7 +32,7 @@ function App() {
 			<Header />
 			<div className='main'>
 				<div className='controls-cont'>
-					<TextInput />
+					<TextInput changeFilters={updateFilter} />
 					<SelectInput changeFilters={updateFilter} />
 				</div>
 				<div className='countries-cont'>
