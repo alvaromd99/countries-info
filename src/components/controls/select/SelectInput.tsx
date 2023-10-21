@@ -1,5 +1,5 @@
 import './SelectInput.css'
-import { REGIONS_ARRAY as regions } from '../../constants/constants'
+import { REGIONS_ARRAY as regions } from '../../../constants/constants'
 import { useState } from 'react'
 
 export default function SelectInput() {

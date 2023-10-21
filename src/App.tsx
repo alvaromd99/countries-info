@@ -2,8 +2,8 @@ import './App.css'
 import data from '../mocks/data.json'
 import Header from './components/header/Header'
 import CountryCard from './components/countries/CountryCard'
-import TextInput from './components/controls/TextInput'
-import SelectInput from './components/controls/SelectInput'
+import TextInput from './components/controls/text/TextInput'
+import SelectInput from './components/controls/select/SelectInput'
 
 function App() {
 	return (
