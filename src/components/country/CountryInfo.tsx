@@ -3,8 +3,17 @@ import './CountryInfo.css'
 
 interface CountryInfoProps {
 	country: CountryTest
+	changeSelected: (name: string) => void
 }
 
-export default function CountryInfo({ country }: CountryInfoProps) {
-	return <div>{country.name}</div>
+export default function CountryInfo({
+	country,
+	changeSelected,
+}: CountryInfoProps) {
+	return (
+		<div>
+			<button onClick={() => changeSelected('')}>Back</button>
+			{country.name}
+		</div>
+	)
 }

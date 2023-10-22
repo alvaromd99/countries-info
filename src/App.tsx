@@ -48,10 +48,15 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Header />
+			<div className='header-cont'>
+				<Header />
+			</div>
 			{selectedCountry ? (
 				<div className='more-info-main'>
-					<CountryInfo country={selectedCountry} />
+					<CountryInfo
+						country={selectedCountry}
+						changeSelected={updateSelected}
+					/>
 				</div>
 			) : (
 				<div className='main'>
