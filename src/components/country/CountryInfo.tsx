@@ -11,9 +11,20 @@ export default function CountryInfo({
 	changeSelected,
 }: CountryInfoProps) {
 	return (
-		<div>
-			<button onClick={() => changeSelected('')}>Back</button>
-			{country.name}
+		<div className='info-cont'>
+			<div className='btn-cont'>
+				<button className='back-btn' onClick={() => changeSelected('')}>
+					Back
+				</button>
+			</div>
+			<div className='detail-info-cont'>
+				<div className='info-flag'>
+					<img src={country.flags.png} alt='Country flag' />
+				</div>
+				<div className='info-text'>
+					<h2>{country.name}</h2>
+				</div>
+			</div>
 		</div>
 	)
 }

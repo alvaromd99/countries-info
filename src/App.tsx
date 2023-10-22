@@ -10,7 +10,7 @@ import SelectInput from './components/controls/select/SelectInput'
 
 function App() {
 	const [filters, setFilters] = useState<Filters>({ text: '', region: 'all' })
-	const [selected, setSelected] = useState('')
+	const [selected, setSelected] = useState('Belgium')
 
 	const updateFilter = (field: keyof Filters, value: string) => {
 		setFilters((prevFilters) => ({
@@ -32,16 +32,6 @@ function App() {
 
 		return isMatchingRegion && (filters.text === '' || isMatchingText)
 	})
-
-	/* const filteredData = data.filter((c) => {
-		if (filters.region === 'all' && filters.text === '') {
-			return c
-		}
-		return filters.region === 'all'
-			? c.name.toLowerCase().includes(filters.text.toLowerCase())
-			: c.region === filters.region &&
-					c.name.toLowerCase().includes(filters.text.toLowerCase())
-	}) */
 
 	const selectedCountry =
 		selected !== '' ? data.find((c) => c.name === selected) : null
