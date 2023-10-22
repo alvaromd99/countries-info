@@ -18,6 +18,8 @@
 	--darkGray: hsl(0, 0%, 52%);
 	--veryDarkblue: hsl(200, 15%, 8%);
 	--veryLightGray: hsl(0, 0%, 96%);
+
+	--shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Font weights: 300, 600, 800 */

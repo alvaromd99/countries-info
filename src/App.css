@@ -17,7 +17,7 @@
 .more-info-main {
 	background-color: var(--white);
 	height: calc(100vh - 6rem);
-	margin-top: 1rem;
+	margin-top: 0.4rem;
 }
 
 .countries-cont {

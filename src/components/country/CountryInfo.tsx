@@ -1,5 +1,6 @@
 import { CountryTest } from '../../types/typesTest'
 import './CountryInfo.css'
+import arrow from '../../assets/arrowLeft.svg'
 
 interface CountryInfoProps {
 	country: CountryTest
@@ -14,6 +15,7 @@ export default function CountryInfo({
 		<div className='info-cont'>
 			<div className='btn-cont'>
 				<button className='back-btn' onClick={() => changeSelected('')}>
+					<img src={arrow} alt='Arrow left' />
 					Back
 				</button>
 			</div>
