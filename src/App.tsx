@@ -1,14 +1,16 @@
 import './App.css'
 import data from '../mocks/data.json'
-import Header from './components/header/Header'
-import CountryCard from './components/countries/CountryCard'
-import TextInput from './components/controls/text/TextInput'
-import SelectInput from './components/controls/select/SelectInput'
 import { useState } from 'react'
 import { Filters } from './types/typesTest'
+import Header from './components/header/Header'
+import CountryCard from './components/countries/CountryCard'
+import CountryInfo from './components/country/CountryInfo'
+import TextInput from './components/controls/text/TextInput'
+import SelectInput from './components/controls/select/SelectInput'
 
 function App() {
 	const [filters, setFilters] = useState<Filters>({ text: '', region: 'all' })
+	const [selected, setSelected] = useState('Belgium')
 
 	const updateFilter = (field: keyof Filters, value: string) => {
 		setFilters((prevFilters) => ({
@@ -18,29 +20,50 @@ function App() {
 	}
 
 	const filteredData = data.filter((c) => {
+		const isMatchingRegion =
+			filters.region === 'all' || c.region === filters.region
+		const isMatchingText = c.name
+			.toLowerCase()
+			.includes(filters.text.toLowerCase())
+
+		return isMatchingRegion && (filters.text === '' || isMatchingText)
+	})
+
+	/* const filteredData = data.filter((c) => {
 		if (filters.region === 'all' && filters.text === '') {
 			return c
 		}
-		return (
-			c.name.toLowerCase().includes(filters.text.toLowerCase()) &&
-			c.region === filters.region
-		)
-	})
+		return filters.region === 'all'
+			? c.name.toLowerCase().includes(filters.text.toLowerCase())
+			: c.region === filters.region &&
+					c.name.toLowerCase().includes(filters.text.toLowerCase())
+	}) */
+
+	const selectedCountry =
+		selected !== '' ? data.find((c) => c.name === selected) : null
+
+	console.log(selectedCountry)
 
 	return (
 		<div className='App'>
 			<Header />
-			<div className='main'>
-				<div className='controls-cont'>
-					<TextInput changeFilters={updateFilter} />
-					<SelectInput changeFilters={updateFilter} />
+			{selected === '' ? (
+				<div className='main'>
+					<div className='controls-cont'>
+						<TextInput changeFilters={updateFilter} />
+						<SelectInput changeFilters={updateFilter} />
+					</div>
+					<div className='countries-cont'>
+						{filteredData.map((c, index) => (
+							<CountryCard key={index} country={c} />
+						))}
+					</div>
 				</div>
-				<div className='countries-cont'>
-					{filteredData.map((c, index) => (
-						<CountryCard key={index} country={c} />
-					))}
+			) : (
+				<div className='more-info-main'>
+					<CountryInfo country={selectedCountry} />
 				</div>
-			</div>
+			)}
 		</div>
 	)
 }

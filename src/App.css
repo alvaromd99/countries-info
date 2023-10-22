@@ -1,9 +1,16 @@
 .App {
 	min-height: 100vh;
+	background-color: var(--veryLightGray);
 }
 
 .App .main {
 	background-color: var(--veryLightGray);
+	min-height: 100vh;
+}
+
+.App .more-info-main {
+	background-color: var(--white);
+	margin-top: 1rem;
 	min-height: 100vh;
 }
 
