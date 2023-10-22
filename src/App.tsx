@@ -10,13 +10,17 @@ import SelectInput from './components/controls/select/SelectInput'
 
 function App() {
 	const [filters, setFilters] = useState<Filters>({ text: '', region: 'all' })
-	const [selected, setSelected] = useState('Belgium')
+	const [selected, setSelected] = useState('')
 
 	const updateFilter = (field: keyof Filters, value: string) => {
 		setFilters((prevFilters) => ({
 			...prevFilters,
 			[field]: value,
 		}))
+	}
+
+	const updateSelected = (name: string) => {
+		setSelected(name)
 	}
 
 	const filteredData = data.filter((c) => {
@@ -42,12 +46,14 @@ function App() {
 	const selectedCountry =
 		selected !== '' ? data.find((c) => c.name === selected) : null
 
-	console.log(selectedCountry)
-
 	return (
 		<div className='App'>
 			<Header />
-			{selected === '' ? (
+			{selectedCountry ? (
+				<div className='more-info-main'>
+					<CountryInfo country={selectedCountry} />
+				</div>
+			) : (
 				<div className='main'>
 					<div className='controls-cont'>
 						<TextInput changeFilters={updateFilter} />
@@ -55,13 +61,13 @@ function App() {
 					</div>
 					<div className='countries-cont'>
 						{filteredData.map((c, index) => (
-							<CountryCard key={index} country={c} />
+							<CountryCard
+								key={index}
+								country={c}
+								changeSelected={updateSelected}
+							/>
 						))}
 					</div>
-				</div>
-			) : (
-				<div className='more-info-main'>
-					<CountryInfo country={selectedCountry} />
 				</div>
 			)}
 		</div>

@@ -6,5 +6,5 @@ interface CountryInfoProps {
 }
 
 export default function CountryInfo({ country }: CountryInfoProps) {
-	return <div>CountryInfo</div>
+	return <div>{country.name}</div>
 }

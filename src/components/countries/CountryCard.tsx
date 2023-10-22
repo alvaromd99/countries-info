@@ -4,11 +4,15 @@ import './CountryCard.css'
 
 interface CountryCardProps {
 	country: CountryTest
+	changeSelected: (name: string) => void
 }
 
-export default function CountryCard({ country }: CountryCardProps) {
+export default function CountryCard({
+	country,
+	changeSelected,
+}: CountryCardProps) {
 	return (
-		<div className='card'>
+		<div className='card' onClick={() => changeSelected(country.name)}>
 			<div className='card-image'>
 				<img src={country.flags.png} alt='Country flag' />
 			</div>
