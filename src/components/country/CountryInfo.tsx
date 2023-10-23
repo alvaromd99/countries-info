@@ -15,11 +15,13 @@ export default function CountryInfo({
 }: CountryInfoProps) {
 	const languagesArr = country.languages.map((lang) => lang.name)
 
-	const bordersCountries = country.borders
-		? country.borders.map((b) => data.find((c) => c.alpha3Code === b)?.name)
+	const borderCountries = country.borders
+		? country.borders.map((b) => {
+				const borderData = data.find((c) => c.alpha3Code === b)
+				return borderData?.name || ''
+				// eslint-disable-next-line no-mixed-spaces-and-tabs
+		  })
 		: []
-
-	console.log(bordersCountries)
 
 	return (
 		<div className='info-cont'>
@@ -64,9 +66,9 @@ export default function CountryInfo({
 					</div>
 					<div className='border-countries-cont'>
 						<span>Border Countries: </span>
-						{bordersCountries.length > 0 ? (
+						{borderCountries[0] !== '' ? (
 							<div className='border-countries-btn-cont'>
-								{bordersCountries.map((border, index) => (
+								{borderCountries.map((border, index) => (
 									<button key={index} onClick={() => changeSelected(border)}>
 										{border}
 									</button>
