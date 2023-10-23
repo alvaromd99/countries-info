@@ -54,6 +54,7 @@ export default function CountryInfo({
 							)}
 							<Information info='Languages' value={languagesArr.join(', ')} />
 						</div>
+						<div className='border-countries-cont'></div>
 					</div>
 				</div>
 			</div>
