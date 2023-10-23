@@ -1,18 +1,33 @@
-import { CountryTest } from '../../types/typesTest'
+import { CountryTest, Filters } from '../../types/typesTest'
 import './CountryInfo.css'
 import arrow from '../../assets/arrowLeft.svg'
 import Information from '../Info/Information'
 import data from '../../../mocks/data.json'
+import { useState } from 'react'
 
 interface CountryInfoProps {
 	country: CountryTest
 	changeSelected: (name: string) => void
+	changeFilters: (field: keyof Filters, value: string) => void
 }
 
 export default function CountryInfo({
 	country,
 	changeSelected,
 }: CountryInfoProps) {
+	const [range, setRange] = useState({
+		min: 0,
+		max: 3,
+	})
+
+	const changeRange = (value: number) => {
+		setRange((prevRange) => ({
+			...prevRange,
+			min: value,
+			max: value + 3,
+		}))
+	}
+
 	const languagesArr = country.languages.map((lang) => lang.name)
 
 	const borderCountries = country.borders
@@ -68,14 +83,19 @@ export default function CountryInfo({
 						<span>Border Countries: </span>
 						{borderCountries[0] !== '' ? (
 							<div className='border-countries-btn-cont'>
-								{borderCountries.map((border, index) => (
-									<button key={index} onClick={() => changeSelected(border)}>
-										{border}
-									</button>
-								))}
+								{borderCountries
+									.slice(range.min, range.max)
+									.map((border, index) => (
+										<button key={index} onClick={() => changeSelected(border)}>
+											{border}
+										</button>
+									))}
 							</div>
 						) : (
 							<p>No bordering countries found.</p>
+						)}
+						{range.max < borderCountries.length && (
+							<button onClick={() => changeRange(range.max)}>More</button>
 						)}
 					</div>
 				</div>

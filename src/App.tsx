@@ -46,6 +46,7 @@ function App() {
 					<CountryInfo
 						country={selectedCountry}
 						changeSelected={updateSelected}
+						changeFilters={updateFilter}
 					/>
 				</div>
 			) : (

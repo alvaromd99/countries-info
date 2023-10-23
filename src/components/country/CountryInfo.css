@@ -70,4 +70,26 @@
 
 /* Border countries div */
 .border-countries-cont {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.border-countries-cont span {
+	font-weight: 600;
+	text-wrap: nowrap;
+}
+
+.border-countries-btn-cont {
+	display: flex;
+	gap: 0.4rem;
+}
+
+.border-countries-btn-cont button {
+	max-height: 2rem;
+	background-color: var(--white);
+	border: 1px solid rgb(160, 159, 159);
+	text-align: center;
+	text-wrap: nowrap;
+	padding: 0.3rem 0.8rem;
 }
