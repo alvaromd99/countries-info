@@ -15,8 +15,6 @@ export default function TextInput({ changeFilters }: TextInputProps) {
 		changeFilters('text', e.target.value)
 	}
 
-	console.log(query)
-
 	return (
 		<div className='text-input'>
 			<img src={loupeSvg} alt='Loupe svg' />

@@ -14,6 +14,7 @@ interface CountryInfoProps {
 export default function CountryInfo({
 	country,
 	changeSelected,
+	changeFilters,
 }: CountryInfoProps) {
 	const [range, setRange] = useState({
 		min: 0,
@@ -41,7 +42,13 @@ export default function CountryInfo({
 	return (
 		<div className='info-cont'>
 			<div className='btn-cont'>
-				<button className='back-btn' onClick={() => changeSelected('')}>
+				<button
+					className='back-btn'
+					onClick={() => {
+						changeSelected('')
+						changeFilters('text', '')
+						changeFilters('region', 'all')
+					}}>
 					<img src={arrow} alt='Arrow left' />
 					Back
 				</button>

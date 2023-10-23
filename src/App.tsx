@@ -10,7 +10,7 @@ import SelectInput from './components/controls/select/SelectInput'
 
 function App() {
 	const [filters, setFilters] = useState<Filters>({ text: '', region: 'all' })
-	const [selected, setSelected] = useState('Belgium')
+	const [selected, setSelected] = useState('')
 
 	const updateFilter = (field: keyof Filters, value: string) => {
 		setFilters((prevFilters) => ({
