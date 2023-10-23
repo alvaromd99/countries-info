@@ -1,3 +1,7 @@
+:root {
+	--padding-info: 6rem;
+}
+
 .info-cont {
 	height: 100%;
 	display: flex;
@@ -10,12 +14,12 @@
 	height: 12rem;
 	display: flex;
 	align-items: center;
-	padding-left: 6rem;
+	padding-left: var(--padding-info);
 }
 
 .back-btn {
 	width: 12rem;
-	height: 4rem;
+	height: 3.5rem;
 	background-color: var(--white);
 	border: none;
 	display: flex;
@@ -28,18 +32,26 @@
 }
 
 .detail-info-cont {
+	width: 100%;
 	display: flex;
-	gap: 6rem;
+	justify-content: center;
+	gap: 10rem;
+	padding: 0 var(--padding-info);
 }
 
 .info-flag,
 .info-text {
-	width: 38rem;
-	height: 24rem;
+	width: 35rem;
+	height: 25rem;
 }
 
 .info-flag img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+.info-col-cont {
+	display: flex;
+	gap: 6rem;
 }
