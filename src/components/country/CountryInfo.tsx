@@ -2,6 +2,7 @@ import { CountryTest } from '../../types/typesTest'
 import './CountryInfo.css'
 import arrow from '../../assets/arrowLeft.svg'
 import Information from '../Info/Information'
+import data from '../../../mocks/data.json'
 
 interface CountryInfoProps {
 	country: CountryTest
@@ -13,6 +14,12 @@ export default function CountryInfo({
 	changeSelected,
 }: CountryInfoProps) {
 	const languagesArr = country.languages.map((lang) => lang.name)
+
+	const bordersCountries = country.borders
+		? country.borders.map((b) => data.find((c) => c.alpha3Code === b)?.name)
+		: []
+
+	console.log(bordersCountries)
 
 	return (
 		<div className='info-cont'>
@@ -54,7 +61,20 @@ export default function CountryInfo({
 							)}
 							<Information info='Languages' value={languagesArr.join(', ')} />
 						</div>
-						<div className='border-countries-cont'></div>
+					</div>
+					<div className='border-countries-cont'>
+						<span>Border Countries: </span>
+						{bordersCountries.length > 0 ? (
+							<div className='border-countries-btn-cont'>
+								{bordersCountries.map((border, index) => (
+									<button key={index} onClick={() => changeSelected(border)}>
+										{border}
+									</button>
+								))}
+							</div>
+						) : (
+							<p>No bordering countries found.</p>
+						)}
 					</div>
 				</div>
 			</div>
