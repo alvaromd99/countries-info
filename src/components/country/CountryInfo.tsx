@@ -1,6 +1,8 @@
 import { CountryTest, Filters } from '../../types/typesTest'
 import './CountryInfo.css'
 import arrow from '../../assets/arrowLeft.svg'
+import arrowLiteRight from '../../assets/arrowLiteRight.svg'
+import arrowLiteLeft from '../../assets/arrowLiteLeft.svg'
 import Information from '../Info/Information'
 import data from '../../../mocks/data.json'
 import { useState } from 'react'
@@ -93,7 +95,12 @@ export default function CountryInfo({
 								{borderCountries
 									.slice(range.min, range.max)
 									.map((border, index) => (
-										<button key={index} onClick={() => changeSelected(border)}>
+										<button
+											key={index}
+											onClick={() => {
+												changeSelected(border)
+												changeRange(0)
+											}}>
 											{border}
 										</button>
 									))}
@@ -102,7 +109,18 @@ export default function CountryInfo({
 							<p>No bordering countries found.</p>
 						)}
 						{range.max < borderCountries.length && (
-							<button onClick={() => changeRange(range.max)}>More</button>
+							<button
+								className='borders-btn'
+								onClick={() => changeRange(range.max)}>
+								<img src={arrowLiteRight} alt='Arrow right' />
+							</button>
+						)}
+						{range.min !== 0 && borderCountries.length > 0 && (
+							<button
+								className='borders-btn'
+								onClick={() => changeRange(range.min - 3)}>
+								<img src={arrowLiteLeft} alt='Arrow left' />
+							</button>
 						)}
 					</div>
 				</div>
