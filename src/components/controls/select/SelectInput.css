@@ -1,7 +1,7 @@
 .select-cont {
 	width: 18rem;
 	height: 3.4rem;
-	background-color: var(--white);
+	background-color: var(--input-color);
 	position: relative;
 	font-size: 1.4rem;
 }
@@ -16,7 +16,7 @@
 }
 
 .select-dropdown {
-	background-color: var(--white);
+	background-color: var(--input-color);
 	display: flex;
 	flex-direction: column;
 	margin-top: 0.4rem;
@@ -58,7 +58,7 @@
 	display: block;
 	width: 0.8rem;
 	height: 0.8rem;
-	border: 3px solid var(--veryDarkblue);
+	border: 3px solid var(--text-color);
 	border-left: 0;
 	border-top: 0;
 	position: relative;

@@ -11,15 +11,17 @@
  */
 
 :root {
-	--darkblue: hsl(209, 23%, 22%);
-	--veryGreyDarkblue: hsl(207, 26%, 17%);
-	--white: hsl(0, 0%, 100%);
-
-	--darkGray: hsl(0, 0%, 52%);
-	--veryDarkblue: hsl(200, 15%, 8%);
-	--veryLightGray: hsl(0, 0%, 96%);
+	--background-color: hsl(0, 0%, 92%);
+	--input-color: hsl(0, 0%, 98%);
+	--text-color: hsl(200, 12%, 5%);
 
 	--shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] {
+	--background-color: hsl(207, 26%, 17%);
+	--text-color: hsl(0, 0%, 98%);
+	--input-color: hsl(209, 23%, 22%);
 }
 
 /* Font weights: 300, 600, 800 */
@@ -43,6 +45,7 @@ html {
 
 body {
 	min-height: 100vh;
+	color: var(--text-color);
 }
 
 img,

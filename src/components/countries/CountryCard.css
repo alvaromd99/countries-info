@@ -1,5 +1,5 @@
 .card {
-	background-color: var(--white);
+	background-color: var(--input-color);
 	height: 360px;
 	display: flex;
 	flex-direction: column;
