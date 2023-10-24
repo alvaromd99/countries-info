@@ -90,7 +90,7 @@ export default function CountryInfo({
 					</div>
 					<div className='border-countries-cont'>
 						<span>Border Countries: </span>
-						{borderCountries[0] !== '' ? (
+						{borderCountries[0] !== undefined ? (
 							<div className='border-countries-btn-cont'>
 								{borderCountries
 									.slice(range.min, range.max)

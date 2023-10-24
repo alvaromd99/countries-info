@@ -18,7 +18,7 @@ export default function TextInput({ changeFilters }: TextInputProps) {
 	return (
 		<div className='text-input'>
 			<img src={loupeSvg} alt='Loupe svg' />
-			<input type='text' value={query} onChange={handleChange} />
+			<input type='text' name='input' value={query} onChange={handleChange} />
 		</div>
 	)
 }
