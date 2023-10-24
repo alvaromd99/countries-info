@@ -23,12 +23,12 @@
 .countries-cont {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-	gap: 4rem;
+	gap: 3rem;
 	padding: 0px 4rem;
 }
 
 .controls-cont {
-	height: 10rem;
+	height: 8rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

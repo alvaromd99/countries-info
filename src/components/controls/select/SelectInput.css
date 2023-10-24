@@ -1,6 +1,6 @@
 .select-cont {
 	width: 18rem;
-	height: 4rem;
+	height: 3.4rem;
 	background-color: var(--white);
 	position: relative;
 	font-size: 1.4rem;
@@ -24,6 +24,7 @@
 	opacity: 0;
 	pointer-events: none;
 	transition: all 0.2s ease;
+	outline: 0.2px solid rgba(212, 212, 212, 0.63);
 }
 
 .select-dropdown.active {
