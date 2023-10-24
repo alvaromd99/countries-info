@@ -1,11 +1,13 @@
 import { CountryTest, Filters } from '../../types/typesTest'
 import './CountryInfo.css'
-import arrow from '../../assets/arrowLeft.svg'
-import arrowLiteRight from '../../assets/arrowLiteRight.svg'
-import arrowLiteLeft from '../../assets/arrowLiteLeft.svg'
 import Information from '../Info/Information'
 import data from '../../../mocks/data.json'
 import { useState } from 'react'
+import {
+	ArrowLeft,
+	ArrowLiteLeft,
+	ArrowLiteRight,
+} from '../../svg/SvgCollection'
 
 interface CountryInfoProps {
 	country: CountryTest
@@ -51,7 +53,9 @@ export default function CountryInfo({
 						changeFilters('text', '')
 						changeFilters('region', 'all')
 					}}>
-					<img src={arrow} alt='Arrow left' />
+					<div className='arrow-left-cont'>
+						<ArrowLeft colorCode='var(--text-color)' />
+					</div>
 					Back
 				</button>
 			</div>
@@ -112,14 +116,18 @@ export default function CountryInfo({
 							<button
 								className='borders-btn'
 								onClick={() => changeRange(range.max)}>
-								<img src={arrowLiteRight} alt='Arrow right' />
+								<div className='arrow-right-left-cont'>
+									<ArrowLiteRight colorCode='var(--text-color)' />
+								</div>
 							</button>
 						)}
 						{range.min !== 0 && borderCountries.length > 0 && (
 							<button
 								className='borders-btn'
 								onClick={() => changeRange(range.min - 3)}>
-								<img src={arrowLiteLeft} alt='Arrow left' />
+								<div className='arrow-lite-left-cont'>
+									<ArrowLiteLeft colorCode='var(--text-color)' />
+								</div>
 							</button>
 						)}
 					</div>

@@ -41,7 +41,7 @@
 }
 
 .option:hover {
-	outline: 1px solid black;
+	outline: 1px solid var(--text-color);
 }
 
 .custom-arrow {
