@@ -1,10 +1,15 @@
 import './SelectInput.css'
 import { REGIONS_ARRAY as regions } from '../../../constants/constants'
-import { useState } from 'react'
+import { CSSProperties, useState } from 'react'
 import { Filters } from '../../../types/typesTest'
 
-export interface SelectInputProps {
+interface SelectInputProps {
 	changeFilters: (field: keyof Filters, value: string) => void
+}
+
+export interface MyCustomCSS extends CSSProperties {
+	'--trans': string
+	'--rot': string
 }
 
 export default function SelectInput({ changeFilters }: SelectInputProps) {
@@ -23,12 +28,18 @@ export default function SelectInput({ changeFilters }: SelectInputProps) {
 
 	const regionsArr = regions.filter((region) => region !== regionValue)
 
+	const customArrowStyle = isSelectActive
+		? { '--trans': '-20%', '--rot': '225deg' }
+		: { '--trans': '-80%', '--rot': '45deg' }
+
 	return (
 		<div className='select-cont'>
 			<div className='select-btn' onClick={toggleActive}>
 				{regionValue === 'all' ? 'Filter by region' : regionValue}
 			</div>
-			<span className={'custom-arrow'}></span>
+			<span
+				className='custom-arrow'
+				style={customArrowStyle as MyCustomCSS}></span>
 			<div className={`select-dropdown${isSelectActive ? ' active' : ''}`}>
 				{regionsArr.map((region, index) => (
 					<div
