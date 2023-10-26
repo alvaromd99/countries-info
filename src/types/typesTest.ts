@@ -70,3 +70,8 @@ export interface Translation {
 	it: string
 	hu: string
 }
+
+export interface SelectContextType {
+	selected: string
+	updateSelected: (name: string) => void
+}

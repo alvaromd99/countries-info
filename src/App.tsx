@@ -12,15 +12,15 @@ function App() {
 	const [filters, setFilters] = useState<Filters>({ text: '', region: 'all' })
 	const [selected, setSelected] = useState('')
 
+	const updateSelected = (name: string) => {
+		setSelected(name)
+	}
+
 	const updateFilter = (field: keyof Filters, value: string) => {
 		setFilters((prevFilters) => ({
 			...prevFilters,
 			[field]: value,
 		}))
-	}
-
-	const updateSelected = (name: string) => {
-		setSelected(name)
 	}
 
 	const filteredData = data.filter((c) => {

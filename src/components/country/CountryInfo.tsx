@@ -1,13 +1,9 @@
 import { CountryTest, Filters } from '../../types/typesTest'
 import './CountryInfo.css'
 import Information from '../Info/Information'
-import data from '../../../mocks/data.json'
 import { useState } from 'react'
-import {
-	ArrowLeft,
-	ArrowLiteLeft,
-	ArrowLiteRight,
-} from '../../svg/SvgCollection'
+import { ArrowLeft } from '../../svg/SvgCollection'
+import BorderCountries from './borders/BorderCountries'
 
 interface CountryInfoProps {
 	country: CountryTest
@@ -34,14 +30,6 @@ export default function CountryInfo({
 	}
 
 	const languagesArr = country.languages.map((lang) => lang.name)
-
-	const borderCountries = country.borders
-		? country.borders.map((b) => {
-				const borderData = data.find((c) => c.alpha3Code === b)
-				return borderData?.name || ''
-				// eslint-disable-next-line no-mixed-spaces-and-tabs
-		  })
-		: []
 
 	return (
 		<div className='info-cont'>
@@ -92,45 +80,12 @@ export default function CountryInfo({
 							<Information info='Languages' value={languagesArr.join(', ')} />
 						</div>
 					</div>
-					<div className='border-countries-cont'>
-						<span>Border Countries: </span>
-						{borderCountries[0] !== undefined ? (
-							<div className='border-countries-btn-cont'>
-								{borderCountries
-									.slice(range.min, range.max)
-									.map((border, index) => (
-										<button
-											key={index}
-											onClick={() => {
-												changeSelected(border)
-												changeRange(0)
-											}}>
-											{border}
-										</button>
-									))}
-							</div>
-						) : (
-							<p>No bordering countries found.</p>
-						)}
-						{range.max < borderCountries.length && (
-							<button
-								className='borders-btn'
-								onClick={() => changeRange(range.max)}>
-								<div className='arrow-right-left-cont'>
-									<ArrowLiteRight colorCode='var(--text-color)' />
-								</div>
-							</button>
-						)}
-						{range.min !== 0 && borderCountries.length > 0 && (
-							<button
-								className='borders-btn'
-								onClick={() => changeRange(range.min - 3)}>
-								<div className='arrow-lite-left-cont'>
-									<ArrowLiteLeft colorCode='var(--text-color)' />
-								</div>
-							</button>
-						)}
-					</div>
+					<BorderCountries
+						range={range}
+						changeRange={changeRange}
+						changeSelected={changeSelected}
+						borders={country.borders}
+					/>
 				</div>
 			</div>
 		</div>
